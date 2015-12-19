@@ -48,6 +48,9 @@ NONCANONIC_SITES = [
 
 ### Filters settings ###
 
+# Use image filters
+FILTER_IMAGES = True
+
 # AdblockURLFilter
 ADBLOCK_EASYLIST_URL = 'easylist.txt'
     # 'https://easylist-downloads.adblockplus.org/easylist.txt'
