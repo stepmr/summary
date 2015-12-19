@@ -122,18 +122,18 @@ class Summary(object):
             # # urls = [self._clean_url(u) for u in urls]
             # urls = filter(None, map(self._clean_url, urls))
             # self.urls.extend(urls)
-
-        if config.GET_ALL_DATA:
-            # images = [i for i in [self._filter_image(i) for i in images] if i]
-            images = filter(None, map(self._filter_image, images))
-            self.images.extend(images)
-        elif not enough(self.images):
-            for i in images:
-                image = self._filter_image(i)
-                if image:
-                    self.images.append(image)
-                if enough(self.images):
-                    break
+        if config.FILTER_IMAGES:
+            if config.GET_ALL_DATA:
+                # images = [i for i in [self._filter_image(i) for i in images] if i]
+                images = filter(None, map(self._filter_image, images))
+                self.images.extend(images)
+            elif not enough(self.images):
+                for i in images:
+                    image = self._filter_image(i)
+                    if image:
+                        self.images.append(image)
+                    if enough(self.images):
+                        break
 
         # Picking the best item by sorting
         # self.titles = sorted(self.titles, key=len)
